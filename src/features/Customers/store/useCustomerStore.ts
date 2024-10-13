@@ -23,7 +23,7 @@ export const useCustomerStore = defineStore('customer', () => {
   }
 
   const updateCustomer = (customer: Customer) => {
-    const index = customers.value.findIndex(c => c.id === customer.id)
+    const index = customers.value.findIndex((c) => c.id === customer.id)
     if (index !== -1) {
       customers.value[index] = customer
       localStorage.setItem('customers', JSON.stringify(customers.value))
@@ -31,12 +31,12 @@ export const useCustomerStore = defineStore('customer', () => {
   }
 
   const deleteCustomer = (id: number) => {
-    customers.value = customers.value.filter(c => c.id !== id)
+    customers.value = customers.value.filter((c) => c.id !== id)
     localStorage.setItem('customers', JSON.stringify(customers.value))
   }
 
   function test() {
-    console.log("check test")
+    console.log('check test')
   }
 
   return {
