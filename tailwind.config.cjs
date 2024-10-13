@@ -5,13 +5,19 @@ const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{vue,ts}'],
+  // theme: {
+  //   extend: {
+  //     // here's how to extend fonts if needed
+  //     fontFamily: {
+  //       sans: [...defaultTheme.fontFamily.sans],
+  //     },
+  //   },
+  // },
   theme: {
     extend: {
-      //     // here's how to extend fonts if needed
-      //     fontFamily: {
-      //       sans: [...defaultTheme.fontFamily.sans],
-      //     },
-      colors: {},
+      colors: {
+        'custom-gray': '#f5f5f5',
+      },
     },
   },
   plugins: [

@@ -1,19 +1,22 @@
-import { createHead } from '@unhead/vue'
 import { createPinia } from 'pinia'
-import { createApp, markRaw } from 'vue'
+import PrimeVue from 'primevue/config'
+import InputText from 'primevue/inputtext'
+import Textarea from 'primevue/textarea'
+import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/index.postcss'
 import router from './router'
 
-const head = createHead()
 const app = createApp(App)
+app.use(PrimeVue, {
+  unstyled: true
+});
+app.component('InputText', InputText)
+app.component('Textarea', Textarea)
 
 const pinia = createPinia()
-pinia.use(({ store }) => {
-  store.router = markRaw(router)
-})
-app.use(pinia)
+
 app.use(router)
-app.use(head)
+app.use(pinia)
 
 app.mount('#app')
