@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
+import { computed, ref } from 'vue'
 
 import { CUSTOMER_ROUTE } from '@/constants'
 import type { Customer } from '@/global'

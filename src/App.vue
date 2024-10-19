@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router' // Import RouterView
-import { useCustomerStore } from './features/Customers/store/useCustomerStore'
+import { onMounted } from 'vue';
+import { RouterView } from 'vue-router'; // Import RouterView
+import { useCustomerStore } from './features/Customers/store/useCustomerStore';
 
 const store = useCustomerStore()
 

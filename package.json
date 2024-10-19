@@ -6,6 +6,7 @@
     "dev": "cross-env DEBUG=0 vite",
     "build": "run-p type-check \"build-only {@}\" --",
     "build-only": "vite build",
+    "build-android": "vite build && node scripts/move-dist.cjs && cd cordova && cordova build android",
     "preview": "vite build && vite preview",
     "start": "pnpm dev & wait-on tcp:3000 -v",
     "test": "vitest",
@@ -14,13 +15,19 @@
     "test:ci": "vitest run --coverage",
     "test:ci-e2e": "playwright test",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "inlined-build": "vite build --config vite.config.inlined.ts",
+    "inlined-preview": "vite build --config vite.config.inlined.ts && start ./dist/index.html",
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
     "@unhead/vue": "1.11.2",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "pinia": "2.2.0",
     "primevue": "^4.0.7",
     "vee-validate": "^4.13.2",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-minify": "^2.0.0",
+    "vite-plugin-singlefile": "^2.0.2",
     "vue": "3.5.3",
     "vue-router": "4.4.0",
     "yup": "^1.4.0"

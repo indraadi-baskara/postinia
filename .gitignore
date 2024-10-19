@@ -35,4 +35,6 @@ LOCAL_NOTES.md
 package-lock.json
 *.tsbuildinfo
 
+cordova/www
+
 importVue.ts
