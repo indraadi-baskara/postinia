@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
 
-import { router } from '@/router'
 import { CUSTOMER_ROUTE } from '@/constants'
 import type { Customer } from '@/global'
+import { router } from '@/router'
 
 import { useCustomerStore } from '../store'
 
@@ -11,6 +11,10 @@ const { customers } = storeToRefs(useCustomerStore())
 const searchQuery = ref<string>()
 
 const filteredCustomers = computed(() => {
+  if (!searchQuery.value) {
+    return customers.value
+  }
+
   return findCustomersByNameOrEmail(searchQuery.value, customers.value || [])
 })
 
@@ -35,7 +39,7 @@ function redirectToAddCustomer() {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto p-6 relative h-screen w-full">
+  <div class="max-w-4xl mx-auto p-6 relative h-[calc(100vh-80px)] w-full">
     <p>
       <router-link to="/">Back</router-link>
     </p>

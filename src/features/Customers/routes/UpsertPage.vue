@@ -120,7 +120,7 @@ const updateContact = (values: Partial<Customer>) => {
 </script>
 
 <template>
-  <div class="p-6 mx-auto prose md:px-6 prose-indigo sm:rounded-md h-screen">
+  <div class="p-6 mx-auto prose md:px-6 prose-indigo sm:rounded-md h-[calc(100vh-80px)]">
     <p>
       <router-link to="/customers"> Back </router-link>
     </p>
