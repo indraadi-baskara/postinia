@@ -121,7 +121,7 @@ const updateContact = (values: Partial<Customer>) => {
 
 <template>
   <div class="p-6 mx-auto prose md:px-6 prose-indigo sm:rounded-md h-[calc(100vh-80px)]">
-    <form @submit="onSubmit" class="mb-4 flex flex-col h-[calc(100%-140px)]">
+    <form @submit="onSubmit" class="mb-4 flex flex-col h-full">
       <div class="mb-2">
         <label for="name" class="block text-base pb-2.5 text-[#2A3256]">Nama Pelanggan</label>
         <InputText
