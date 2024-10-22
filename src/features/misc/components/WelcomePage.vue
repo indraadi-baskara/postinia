@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import type { RouteRecordRaw } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router';
 
-import { CUSTOMER_ROUTE, SERVICE_ROUTE } from '@/constants'
+import { CUSTOMER_ROUTE, SERVICE_ROUTE } from '@/constants';
+
+const props = defineProps(['isRendered']);
 
 const menuLists: {
   name: string
@@ -22,7 +24,7 @@ const menuLists: {
 </script>
 
 <template>
-  <div class="w-full">
+  <div v-if="props.isRendered === undefined || props.isRendered === true" class="w-full">
     <div class="p-6 grid gap-y-5">
       <RouterLink
         v-for="menu in menuLists"

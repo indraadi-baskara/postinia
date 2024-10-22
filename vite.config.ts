@@ -35,8 +35,9 @@ export default defineConfig({
     }),
   ],
   server: {
-    host: true,
+    host: false,
   },
+  base: './',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

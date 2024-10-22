@@ -2,8 +2,11 @@
 import { onMounted } from 'vue';
 import { RouterView } from 'vue-router'; // Import RouterView
 import { useCustomerStore } from './features/Customers/store/useCustomerStore';
+import WelcomePage from './features/misc/components/WelcomePage.vue';
+import { useRouterStore } from './router/store/useRouterStore';
 
-const store = useCustomerStore()
+const store = useCustomerStore();
+const routerStore = useRouterStore();
 
 onMounted(() => {
   store.getInitApp()
@@ -17,7 +20,8 @@ onMounted(() => {
     </div>
 
     <main class="h-full w-full">
-      <router-view />
+      <router-view :is-rendered="routerStore.router.isVisited" />
+      <WelcomePage :is-rendered="!routerStore.router.isVisited" />
     </main>
   </div>
 </template>

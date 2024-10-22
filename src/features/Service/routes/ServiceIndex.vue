@@ -1,6 +1,10 @@
 <script lang="ts" setup>
-import ServiceHistoryCard from '../components/ServiceHistoryCard.vue'
-import type { TransactionDto } from '../types'
+import { useRouterStore } from '@/router/store/useRouterStore';
+import ServiceHistoryCard from '../components/ServiceHistoryCard.vue';
+import type { TransactionDto } from '../types';
+
+const routerStore = useRouterStore();
+routerStore.updateRouterStatus();
 
 const transactions: TransactionDto[] = [
   {

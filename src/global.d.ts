@@ -5,3 +5,7 @@ export interface Customer {
   address?: string
   email?: string
 }
+
+export interface Router {
+  isVisited: boolean
+}

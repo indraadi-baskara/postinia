@@ -18,8 +18,20 @@
 pnpm build
 ```
 
+# Preview App
+
+```bash
+pnpm preview
+```
+
 # Build Android
 
 ```bash
 pnpm build-android
 ```
+
+# Inject App on Android device
+
+```bash
+pnpm inject-android
+``` 

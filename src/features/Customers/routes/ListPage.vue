@@ -6,10 +6,14 @@ import { CUSTOMER_ROUTE } from '@/constants'
 import type { Customer } from '@/global'
 import { router } from '@/router'
 
+import { useRouterStore } from '@/router/store/useRouterStore'
 import { useCustomerStore } from '../store'
 
 const { customers } = storeToRefs(useCustomerStore())
+const routerStore = useRouterStore();
 const searchQuery = ref<string>()
+
+routerStore.updateRouterStatus();
 
 const filteredCustomers = computed(() => {
   if (!searchQuery.value) {

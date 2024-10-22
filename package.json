@@ -8,6 +8,7 @@
     "build-only": "vite build",
     "build-android": "vite build && node scripts/move-dist.cjs && cd cordova && cordova build android",
     "preview": "vite build && vite preview",
+    "inject-android": "pnpm build-android && cd cordova && cordova run android --device",
     "start": "pnpm dev & wait-on tcp:3000 -v",
     "test": "vitest",
     "coverage": "vitest run --coverage",
