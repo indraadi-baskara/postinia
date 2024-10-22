@@ -41,6 +41,13 @@ function redirectToAddCustomer() {
     name: CUSTOMER_ROUTE.CREATE,
   })
 }
+
+function redirectToUpdateCustomer(id: number) {
+  router.push({
+    name: CUSTOMER_ROUTE.UPDATE,
+    params: { id },
+  })
+}
 </script>
 
 <template>
@@ -60,6 +67,7 @@ function redirectToAddCustomer() {
         v-for="customer in filteredCustomers"
         :key="customer.id"
         class="bg-gray-100 p-4 rounded-md shadow-sm hover:shadow-md transition-shadow duration-200"
+        @click="redirectToUpdateCustomer(customer.id)"
       >
         <span class="font-semibold">{{ customer.name }}</span> - {{ customer.phone }}
       </li>
