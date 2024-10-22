@@ -37,7 +37,9 @@ const schema = yup.object({
   phone: yup
     .string()
     .required('Phone is required')
-    .matches(/^(62|0)8\d{8}$/, 'Phone number must start with 628x or 08x followed by 8 digits'),
+    .matches(/^(62|0)8\d{7,12}$/, 'Phone number must start with 628x or 08x and be 8-13 digits long')
+    .min(8, 'Phone number must be at least 8 digits long')
+    .max(13, 'Phone number must not exceed 13 digits'),
   address: yup.string(),
 })
 
