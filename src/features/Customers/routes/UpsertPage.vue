@@ -121,11 +121,6 @@ const updateContact = (values: Partial<Customer>) => {
 
 <template>
   <div class="p-6 mx-auto prose md:px-6 prose-indigo sm:rounded-md h-[calc(100vh-80px)]">
-    <p>
-      <router-link to="/customers"> Back </router-link>
-    </p>
-    <h2 v-if="editingId !== null">Ubah pelanggan</h2>
-    <h2 v-else>Tambah pelanggan</h2>
     <form @submit="onSubmit" class="mb-4 flex flex-col h-[calc(100%-140px)]">
       <div class="mb-2">
         <label for="name" class="block text-base pb-2.5 text-[#2A3256]">Nama Pelanggan</label>

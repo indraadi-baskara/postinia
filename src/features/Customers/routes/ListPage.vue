@@ -45,9 +45,6 @@ function redirectToAddCustomer() {
 
 <template>
   <div class="max-w-4xl mx-auto p-6 relative h-[calc(100vh-80px)] w-full">
-    <p>
-      <router-link to="/">Back</router-link>
-    </p>
     <h1 class="text-3xl font-bold mb-6">Customer List</h1>
 
     <div class="mb-6">

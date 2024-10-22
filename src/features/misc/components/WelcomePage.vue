@@ -29,7 +29,7 @@ const menuLists: {
       <RouterLink
         v-for="menu in menuLists"
         :key="menu.key"
-        v-slot="{ isActive, href, navigate }"
+        v-slot="{ href, navigate }"
         custom
         :to="{
           name: menu.key,

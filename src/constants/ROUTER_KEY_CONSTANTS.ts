@@ -1,13 +1,13 @@
-export const HOME_ROUTE = 'HOME_KEY'
+export const HOME_ROUTE = 'POSTINIA'
 
 export const CUSTOMER_ROUTE = {
-  INDEX: 'CUSTOMER_INDEX_KEY',
-  CREATE: 'CUSTOMER_CREATE_KEY',
-  UPDATE: 'CUSTOMER_UPDATE_KEY',
+  INDEX: 'Pelanggan',
+  CREATE: 'Tambah Pelanggan',
+  UPDATE: 'Ubah Pelanggan',
 }
 
 export const SERVICE_ROUTE = {
-  INDEX: 'SERVICE_INDEX_KEY',
-  CREATE: 'SERVICE_CREATE_KEY',
-  UPDATE: 'SERVICE_UPDATE_KEY',
+  INDEX: 'Layanan',
+  CREATE: 'Tambah Layanan',
+  UPDATE: 'Ubah Layanan',
 }
