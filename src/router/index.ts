@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import { serviceRoutes } from '@/features/Service'
 import { customerRoutes } from '@/features/Customers'
+import { serviceRoutes } from '@/features/Service'
 
 import { HOME_ROUTE } from '@/constants'
 
@@ -13,6 +13,7 @@ const router = createRouter({
       name: HOME_ROUTE,
       component: () => import('@/features/Misc/components/WelcomePage.vue'),
       meta: { title: 'Selamat datang' },
+      
     },
     ...customerRoutes(),
     ...serviceRoutes(),
@@ -20,3 +21,4 @@ const router = createRouter({
 })
 
 export { router }
+
