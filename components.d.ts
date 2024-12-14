@@ -7,8 +7,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    FormFieldWrapper: typeof import('./src/components/forms/FormFieldWrapper.vue')['default']
-    FormInputField: typeof import('./src/components/forms/FormInputField.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
