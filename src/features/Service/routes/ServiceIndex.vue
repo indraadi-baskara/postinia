@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { useRouterStore } from '@/router/store/useRouterStore';
-import ServiceHistoryCard from '../components/ServiceHistoryCard.vue';
-import type { TransactionDto } from '../types';
+import { useRouterStore } from '@/router/store/useRouterStore'
+import ServiceHistoryCard from '../components/ServiceHistoryCard.vue'
+import type { TransactionDto } from '../types'
+import Button from 'primevue/button'
 
-const routerStore = useRouterStore();
-routerStore.updateRouterStatus();
+const routerStore = useRouterStore()
+routerStore.updateRouterStatus()
 
 const transactions: TransactionDto[] = [
   {
@@ -75,6 +76,8 @@ const transactionsByDate = transactions.reduce(
 
 <template>
   <div class="p-6 grid gap-y-2.5">
+    <Button label="Tambah Layanan" />
+
     <div v-for="transactionDate in transactionsByDate" :key="transactionDate.date" class="pb-5 grid gap-y-3.5">
       <div class="flex justify-between gap-x-6 items-center text-[#2A3256]">
         <p class="text-xs leading-[14px]">{{ transactionDate.date }}</p>
