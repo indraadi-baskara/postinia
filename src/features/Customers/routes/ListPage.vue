@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { PencilSquareIcon } from '@heroicons/vue/24/outline'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 
@@ -10,10 +11,12 @@ import { useRouterStore } from '@/router/store/useRouterStore'
 import { useCustomerStore } from '../store'
 
 const { customers } = storeToRefs(useCustomerStore())
-const routerStore = useRouterStore();
+const routerStore = useRouterStore()
 const searchQuery = ref<string>()
+const isVisible = ref(false);
+const selectedCustomer = ref<Customer>();
 
-routerStore.updateRouterStatus();
+routerStore.updateRouterStatus()
 
 const filteredCustomers = computed(() => {
   if (!searchQuery.value) {
@@ -51,33 +54,53 @@ function redirectToUpdateCustomer(id: number) {
 </script>
 
 <template>
-  <div class="max-w-4xl mx-auto p-6 relative h-[calc(100vh-80px)] w-full">
-    <h1 class="text-3xl font-bold mb-6">Customer List</h1>
-
+  <div class="p-6 mx-auto prose md:px-6 prose-indigo sm:rounded-md h-[calc(100vh-80px)] relative">
     <div class="mb-6">
       <input
         v-model="searchQuery"
         placeholder="Search customers..."
-        class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
 
-    <ul class="space-y-4">
-      <li
+    <div class="space-y-4">
+      <div
         v-for="customer in filteredCustomers"
         :key="customer.id"
-        class="bg-gray-100 p-4 rounded-md shadow-sm hover:shadow-md transition-shadow duration-200"
-        @click="redirectToUpdateCustomer(customer.id)"
+        class="bg-gray-100 p-4 rounded-md shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-row"
       >
-        <span class="font-semibold">{{ customer.name }}</span> - {{ customer.phone }}
-      </li>
-    </ul>
+        <div class="flex flex-row w-full" @click="isVisible = true; selectedCustomer = customer">
+          <span class="font-semibold mr-2">{{ customer.name }}</span> <span>- {{ customer.phone }}</span> 
+        </div>
+        <PencilSquareIcon class="w-4 h-4 cursor-pointer ml-auto mt-auto mb-auto" @click="redirectToUpdateCustomer(customer.id)" />
+      </div>
+    </div>
 
-    <p v-if="filteredCustomers.length === 0" class="text-gray-500 text-center mt-4">No customers found.</p>
+    <Dialog v-model:visible="isVisible" modal header="Edit Profile" class="mx-6 bg-gray-100" :style="{ width: '500px', maxWidth: '100%' }">
+      <template #header>
+        <div class="inline-flex items-center justify-center gap-2">
+          <span class="font-bold whitespace-nowrap">Informasi Pelanggan</span>
+        </div>
+      </template>
+      <div class="flex items-center gap-4 mb-4">
+        <label class="font-semibold w-[150px]">Nama Pelanggan</label>
+        <label class="font-semibold">{{ selectedCustomer?.name }}</label>
+      </div>
+      <div class="flex items-center gap-4 mb-4">
+        <label class="font-semibold w-[150px]">Nomor telepon</label>
+        <label class="font-semibold">{{ selectedCustomer?.phone ?? '-' }}</label>
+      </div>
+      <div class="flex items-center gap-4 mb-4">
+        <label class="font-semibold w-[150px]">Alamat</label>
+        <label class="font-semibold">{{ selectedCustomer?.email ?? '-' }}</label>
+      </div>
+    </Dialog>
 
-    <div class="mt-8 text-center absolute bottom-5 left-0 right-0">
-      <button @click="redirectToAddCustomer" class="bg-blue text-white font-bold py-2 px-4 rounded">
-        Add New Customer
+    <p v-if="filteredCustomers.length === 0" class="text-gray-500 text-center mt-4">Pelanggan tidak ditemukan.</p>
+
+    <div class="mt-8 text-center absolute w-full bottom-5 left-0 right-0 px-6">
+      <button @click="redirectToAddCustomer" class="text-base font-medium p-5 w-full mt-auto text-white bg-blue rounded">
+        Tambah Pelanggan Baru
       </button>
     </div>
   </div>
