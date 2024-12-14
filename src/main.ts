@@ -5,6 +5,7 @@ import Textarea from 'primevue/textarea'
 import { createApp } from 'vue'
 import Dialog from 'primevue/dialog';
 import Lara from '@primevue/themes/lara'
+import ToastService from 'primevue/toastservice'
 
 
 import App from './App.vue'
@@ -16,6 +17,9 @@ const app = createApp(App)
 app.use(PrimeVue, {
   theme: {
     preset: Lara,
+    options: {
+      darkModeSelector: false || 'none',
+    },
   },
 })
 app.component('InputText', InputText)
@@ -26,5 +30,7 @@ const pinia = createPinia()
 
 app.use(router)
 app.use(pinia)
+
+app.use(ToastService)
 
 app.mount('#app')

@@ -7,7 +7,46 @@ settings:
 overrides:
   eslint: 8.x
 
-importers:
+dependencies:
+  '@primevue/forms':
+    specifier: ^4.2.5
+    version: 4.2.5(vue@3.5.3)
+  '@primevue/themes':
+    specifier: ^4.2.5
+    version: 4.2.5
+  '@unhead/vue':
+    specifier: 1.11.2
+    version: 1.11.2(vue@3.5.3)
+  '@vitejs/plugin-basic-ssl':
+    specifier: ^1.1.0
+    version: 1.1.0(vite@5.4.0)
+  pinia:
+    specifier: 2.2.0
+    version: 2.2.0(typescript@5.6.2)(vue@3.5.3)
+  primevue:
+    specifier: ^4.0.7
+    version: 4.0.7(vue@3.5.3)
+  vee-validate:
+    specifier: ^4.13.2
+    version: 4.13.2(vue@3.5.3)
+  vite-plugin-css-injected-by-js:
+    specifier: ^3.5.2
+    version: 3.5.2(vite@5.4.0)
+  vite-plugin-minify:
+    specifier: ^2.0.0
+    version: 2.0.0(vite@5.4.0)
+  vite-plugin-singlefile:
+    specifier: ^2.0.2
+    version: 2.0.2(rollup@4.24.0)(vite@5.4.0)
+  vue:
+    specifier: 3.5.3
+    version: 3.5.3(typescript@5.6.2)
+  vue-router:
+    specifier: 4.4.0
+    version: 4.4.0(vue@3.5.3)
+  yup:
+    specifier: ^1.4.0
+    version: 1.4.0
 
   .:
     dependencies:
@@ -3935,7 +3974,16 @@ snapshots:
 
   '@polka/url@1.0.0-next.28': {}
 
-  '@primeuix/styled@0.0.5':
+  /@primeuix/forms@0.0.2:
+    resolution: {integrity: sha512-DpecPQd/Qf/kav4LKCaIeGuT3AkwhJzuHCkLANTVlN/zBvo8KIj3OZHsCkm0zlIMVVnaJdtx1ULNlRQdudef+A==}
+    engines: {node: '>=12.11.0'}
+    dependencies:
+      '@primeuix/utils': 0.3.2
+    dev: false
+
+  /@primeuix/styled@0.0.5:
+    resolution: {integrity: sha512-pVoGn/uPkVm/DyF3TR3EmH/pL/dP4nR42FcYbVduFq9VfO3KVeOEqvcCULHXos66RZO9MCbCFUoLy6ctf9GUGQ==}
+    engines: {node: '>=12.11.0'}
     dependencies:
       '@primeuix/utils': 0.0.5
 
@@ -3953,7 +4001,31 @@ snapshots:
       '@primeuix/utils': 0.0.5
       vue: 3.5.3(typescript@5.6.2)
 
-  '@primevue/icons@4.0.7(vue@3.5.3(typescript@5.6.2))':
+  /@primevue/core@4.2.5(vue@3.5.3):
+    resolution: {integrity: sha512-+oWBIQs5dLd2Ini4KEVOlvPILk989EHAskiFS3R/dz3jeOllJDMZFcSp8V9ddV0R3yDaPdLVkfHm2Q5t42kU2Q==}
+    engines: {node: '>=12.11.0'}
+    peerDependencies:
+      vue: ^3.3.0
+    dependencies:
+      '@primeuix/styled': 0.3.2
+      '@primeuix/utils': 0.3.2
+      vue: 3.5.3(typescript@5.6.2)
+    dev: false
+
+  /@primevue/forms@4.2.5(vue@3.5.3):
+    resolution: {integrity: sha512-5jarJQ9Qv32bOo/0tY5bqR3JZI6+YmmoUQ2mjhVSbVElQsE4FNfhT7a7JwF+xgBPMPc8KWGNA1QB248HhPNVAg==}
+    engines: {node: '>=12.11.0'}
+    dependencies:
+      '@primeuix/forms': 0.0.2
+      '@primeuix/utils': 0.3.2
+      '@primevue/core': 4.2.5(vue@3.5.3)
+    transitivePeerDependencies:
+      - vue
+    dev: false
+
+  /@primevue/icons@4.0.7(vue@3.5.3):
+    resolution: {integrity: sha512-tj4dfRdV5iN6O0mbkpjhMsGlT3wZTqOPL779ndY5gKuCwN5zcFmKmABWVQmr/ClRivnMkw6Yr1x6gRTV/N0ydg==}
+    engines: {node: '>=12.11.0'}
     dependencies:
       '@primeuix/utils': 0.0.5
       '@primevue/core': 4.0.7(vue@3.5.3(typescript@5.6.2))
