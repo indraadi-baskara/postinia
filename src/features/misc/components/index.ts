@@ -1,3 +1,1 @@
-import WelcomePage from './WelcomePage.vue'
-
-export { WelcomePage }
+export * from './WelcomePage.vue'
