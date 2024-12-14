@@ -40,7 +40,7 @@ const currentRouteName = computed(() => {
 
     <main class="h-full w-full">
       <router-view :is-rendered="routerStore.router.isVisited" />
-      <WelcomePage :is-rendered="currentRouteName === HOME_ROUTE" />
+      <WelcomePage :is-rendered="!routerStore.router.isVisited && currentRouteName === HOME_ROUTE" />
     </main>
   </div>
 </template>
