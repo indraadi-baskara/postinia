@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import { useRouterStore } from '@/router/store/useRouterStore'
-import ServiceHistoryCard from '../components/ServiceHistoryCard.vue'
-import type { TransactionDto } from '../types'
+import { useRouterStore } from '@/router/store/useRouterStore';
+import ServiceHistoryCard from '../components/ServiceHistoryCard.vue';
+import type { TransactionDto } from '../types';
 
-const routerStore = useRouterStore()
-routerStore.updateRouterStatus()
+const routerStore = useRouterStore();
+routerStore.updateRouterStatus();
 
 const transactions: TransactionDto[] = [
   {
@@ -74,5 +74,20 @@ const transactionsByDate = transactions.reduce(
 </script>
 
 <template>
-  <div class="p-6 grid gap-y-2.5">test</div>
+  <div class="p-6 grid gap-y-2.5">
+    <div v-for="transactionDate in transactionsByDate" :key="transactionDate.date" class="pb-5 grid gap-y-3.5">
+      <div class="flex justify-between gap-x-6 items-center text-[#2A3256]">
+        <p class="text-xs leading-[14px]">{{ transactionDate.date }}</p>
+        <p class="font-medium text-base leading-[18px]">{{ transactionDate.total }}</p>
+      </div>
+
+      <div class="grid gap-y-2.5">
+        <ServiceHistoryCard
+          v-for="transaction in transactionsByDate[transactionDate.date].items"
+          :key="transaction.id"
+          :transaction
+        />
+      </div>
+    </div>
+  </div>
 </template>

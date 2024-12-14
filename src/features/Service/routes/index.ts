@@ -9,5 +9,10 @@ export function serviceRoutes(): Readonly<RouteRecordRaw[]> {
       name: SERVICE_ROUTE.INDEX,
       component: () => import('./ServiceIndex.vue'),
     },
+    {
+      path: '/layanan/tambah',
+      name: SERVICE_ROUTE.CREATE,
+      component: () => import('./ServiceCreate.vue'),
+    },
   ]
 }
