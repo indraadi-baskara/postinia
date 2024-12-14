@@ -35,7 +35,7 @@ export default defineConfig({
     }),
   ],
   server: {
-    host: true,
+    host: false,
   },
   base: './',
   resolve: {

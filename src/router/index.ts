@@ -5,16 +5,15 @@ import { serviceRoutes } from '@/features/Service'
 
 import { HOME_ROUTE } from '@/constants'
 
-import { WelcomePage } from '@/features/misc'
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: HOME_ROUTE,
-      component: WelcomePage,
+      component: () => import('@/features/Misc/components/WelcomePage.vue'),
       meta: { title: 'Selamat datang' },
+      
     },
     ...customerRoutes(),
     ...serviceRoutes(),
@@ -22,3 +21,4 @@ const router = createRouter({
 })
 
 export { router }
+
